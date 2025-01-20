@@ -218,11 +218,11 @@
 \ExecuteOptions{a4paper,oneside,twocolumn,notitlepage,final} %% twocolumn <- onecolumn (jsarticle)
 \ProcessOptions
 %%--------begin--------
-% written by @hak7a3 2010/11/05
+% originally written by @hak7a3 2010/11/05, revised by sato 2025/01/20
 \def\cshandoutError#1{\GenericError{ }{cs-handout Error : #1}{See the cs-handout manual.}{\@ehc}}
-\def\@stdnum{\cshandoutError{No \noexpand \stdnum given}}
+\def\@studentid{\cshandoutError{No \noexpand \studentid given}}
 \def\@office{\cshandoutError{No \noexpand \office given}}
-\def\stdnum#1{\def\@stdnum{#1}}
+\def\studentid#1{\def\@studentid{#1}}
 \def\office#1{\def\@office{#1}}
 \RequirePackage{fancyhdr}
 \lhead{(発表会名)}
@@ -1191,7 +1191,7 @@
     \begin{center}
       {\LARGE \@title}
       \vspace{5mm}\par
-      {\large \@stdnum\quad\@author\qquad\@office\\}
+      {\large \@studentid\quad\@author\qquad\@office\\}
       \vspace{5mm}
     \end{center}
   }
