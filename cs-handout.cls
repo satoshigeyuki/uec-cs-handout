@@ -219,9 +219,9 @@
 \ProcessOptions
 %%--------begin--------
 % written by @hak7a3 2010/11/05
-\def\iplError#1{\GenericError{ }{iplresume Error : #1}{See the iplresume manual.}{\@ehc}}
-\def\@stdnum{\iplError{No \noexpand \stdnum given}}
-\def\@office{\iplError{No \noexpand \office given}}
+\def\cshandoutError#1{\GenericError{ }{cs-handout Error : #1}{See the cs-handout manual.}{\@ehc}}
+\def\@stdnum{\cshandoutError{No \noexpand \stdnum given}}
+\def\@office{\cshandoutError{No \noexpand \office given}}
 \def\stdnum#1{\def\@stdnum{#1}}
 \def\office#1{\def\@office{#1}}
 \RequirePackage{fancyhdr}
