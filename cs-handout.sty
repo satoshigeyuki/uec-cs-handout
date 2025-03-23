@@ -1,0 +1,92 @@
+\RequirePackage[left=15truemm,right=15truemm,top=20truemm,bottom=15truemm]{geometry}
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{}
+
+\makeatletter
+
+\newcommand*{\cshandoutError}[1]{\GenericError{ }{cs-handout Error : #1}{See a usage example.}{\@ehc}}
+\newcommand*{\@studentid}[1]{\cshandoutError{No \noexpand \studentid given}}
+\newcommand*{\@office}[1]{\cshandoutError{No \noexpand \office given}}
+
+\newcommand*{\studentid}[1]{\def\@studentid{#1}}
+\newcommand*{\office}[1]{\def\@office{#1}}
+\newcommand*{\presentationdate}[3]{%
+  \year #1 \month #2 \day #3
+  \setacademicyear
+  \rhead{\the\year/\the\month/\the\day}
+}
+\newcounter{academicyear}
+\newcommand{\setacademicyear}{%
+  \setcounter{academicyear}{\the\year}
+  \ifnum \the\month < 4
+    \addtocounter{academicyear}{-1}
+  \fi
+}
+\setacademicyear
+
+\renewcommand{\@maketitle}{%
+  \begin{center}
+    {\LARGE \@title}
+    \vspace{5mm}\par
+    {\large \@studentid\quad\@author\qquad\@office\\}
+    \vspace{5mm}
+  \end{center}
+}
+
+%%====jsarticle begin====
+\renewcommand{\maketitle}{\par
+  \begingroup
+  \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+  \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+  \long\def\@makefntext##1{\advance\leftskip 3zw
+    \parindent 1zw\noindent
+    \llap{\@textsuperscript{\normalfont\@thefnmark}\hskip0.3zw}##1}%
+  \if@twocolumn
+  \ifnum \col@number=\@ne
+  \@maketitle
+  \else
+  \twocolumn[\@maketitle]%
+  \fi
+  \else
+  \newpage
+  \global\@topnum\z@  % Prevents figures from going at top of page.
+  \@maketitle
+  \fi
+% \plainifnotempty %% [MOD] Show headers even in the presence of \maketitle.
+  \@thanks
+  \endgroup
+    \setcounter{footnote}{0}%
+    \global\let\thanks\relax
+    \global\let\maketitle\relax
+    \global\let\@thanks\@empty
+    \global\let\@author\@empty
+    \global\let\@date\@empty
+    \global\let\@title\@empty
+    \global\let\title\relax
+    \global\let\author\relax
+    \global\let\date\relax
+    \global\let\and\relax
+}
+
+\renewenvironment{thebibliography}[1]{%
+  \global\let\presectionname\relax
+  \global\let\postsectionname\relax
+  \section*{\refname}\@mkboth{\refname}{\refname}%
+  \footnotesize %% [MOD]
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m}
+%%====jsarticle end====
+
+\makeatother

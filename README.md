@@ -6,7 +6,7 @@
 
 次の2種類が提供されている．
 
-* LaTeXのクラスファイル `cs-handout.cls` 及びその利用例 `handout.tex`
+* LaTeXパッケージファイル `cs-handout.sty` 及びその利用例 `handout.tex`
 * Microsoft Wordのテンプレートファイル `cs-handout.dotx`
 
 原則として，LaTeXの利用が推奨されている．
