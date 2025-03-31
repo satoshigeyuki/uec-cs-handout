@@ -72,6 +72,7 @@
 \begin{table}[tb]
  \centering
  \caption{\Note{表のキャプションは上}}
+ \vspace{-\bigskipamount}
  \begin{tabular}[t]{ll}
   \toprule
   パッケージ名 & 説明 \\ \midrule
@@ -92,7 +93,8 @@
 \RepeatPlaceholder{200}{あ}
 
 \section{関連研究}
-\Note{参考文献はすべて本文中で引用すべし}
+\Note{参考文献はすべて本文中で適切に引用すべし：
+例えば，角田~\cite{角田24}，小宮ら~\cite{小宮24}，J17-CS~\cite{ipsj-csec18:J17-CS}，CS2023~\cite{kumar24:CS2023}．}
 
 \RepeatPlaceholder{200}{あ}
 
@@ -104,18 +106,8 @@
 \RepeatPlaceholder{200}{あ}
 
 
-\begin{thebibliography}{99}
- \bibitem{journal-format} 著者. タイトル. 雑誌名, 巻(号):開始頁--終了頁 (出版年)
-
- \bibitem{conf-format} 著者. タイトル. 論文集名, pp. 開始頁--終了頁 (出版年)
-
- \bibitem{jounal-example} 赤澤紀子, 赤池英夫, 柴田雄登, 角田博保, 中山泰一.
-         情報科教科書に現れる用語の変遷：情報ABCから情報I・IIまで.
-         情報処理学会論文誌「教育とコンピュータ」, 10(1):13--24 (2024)
-
- \bibitem{conf-example} 小宮常康, 渡辺博芳, 中山泰一, 成見哲, 山路浩夫.
-         電気通信大学における情報入試体験会の実施結果概要の報告.
-         第86回全国大会講演論文集, pp. 365--366 (2024)
-\end{thebibliography}
+\bibliographystyle{jplain}
+\bibliography{ref}
+\Note{pBibTeXの利用を推奨}
 
 \end{document}
