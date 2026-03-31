@@ -1,5 +1,11 @@
 \NeedsTeXFormat{pLaTeX2e}
 \ProvidesPackage{cs-handout}[2026-03-28 SATO Shigeyuki]
+\RequirePackage{ifthen}
+\RequirePackage{ifuptex}
+\ifthenelse{\boolean{nativeuptex}}{}{
+  \PackageError{cs-handout}{upLaTeX is required}{}%
+}
+
 \LoadClass[head_space=20truemm,foot_space=15truemm,gutter=3zw,line_length=26zw,twocolumn,article,uplatex,dvipdfmx]{jlreq}
 
 \RenewBlockHeading{section}{1}{%
