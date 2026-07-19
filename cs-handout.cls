@@ -3,7 +3,7 @@
 \RequirePackage{ifthen}
 \RequirePackage{ifuptex}
 \ifthenelse{\boolean{nativeuptex}}{}{
-  \PackageError{cs-handout}{upLaTeX is required}{}%
+  \ClassError{cs-handout}{upLaTeX is required}{}%
 }
 
 \LoadClass[head_space=20truemm,foot_space=15truemm,gutter=3zw,line_length=26zw,twocolumn,article,uplatex,dvipdfmx]{jlreq}
@@ -26,9 +26,8 @@
 
 \makeatletter
 
-\newcommand*{\cshandoutError}[1]{\GenericError{ }{cs-handout Error : #1}{See a usage example.}{\@ehc}}
-\newcommand*{\@studentid}[1]{\cshandoutError{No \noexpand \studentid given}}
-\newcommand*{\@office}[1]{\cshandoutError{No \noexpand \office given}}
+\newcommand*{\@studentid}[1]{\ClassError{cs-handout}{No \noexpand \studentid given}{}}
+\newcommand*{\@office}[1]{\ClassError{cs-handout}{No \noexpand \office given}{}}
 
 \newcommand*{\studentid}[1]{\def\@studentid{#1}}
 \newcommand*{\office}[1]{\def\@office{#1}}
